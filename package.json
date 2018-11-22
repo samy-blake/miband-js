@@ -9,6 +9,7 @@
     "miband-test": "bin/miband-test.js"
   },
   "scripts": {
+    "https": "cd public && http-server -S -C cert.pem -o",
     "start": "ecstatic ./public --port 8080",
     "build": "rollup -c ./.rollup.js",
     "watch": "rollup -c ./.rollup.js -w",

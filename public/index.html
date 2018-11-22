@@ -14,31 +14,57 @@
   </head>
 
   <body>
-    <a href="https://github.com/vshymanskyy/miband-js">
-      <img class="fork-me" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub">
-    </a>
-
     <header>
-        <h1>
-          <a href="https://github.com/vshymanskyy/miband-js">
-            <span class="h1-left">MiBand</span>
-            <span class="h1-right">JS</span>
-          </a>
-        </h1>
-        <button id="scanBtn" class="btn-scan">Scan</button>
+      <h1>
+        MI Band Web Prototyp
+      </h1>
+      <p id="infoDisplay">
+        Klick auf Scan um das Mi Band zu koppeln
+      </p>
+      <div id="errorDisplay"></div>
     </header>
+
+
+    <div class="m-header__button">
+      <button id="scanBtn" class="btn-scan">Scan</button>
+      <!-- <button id="infosBtn">Infos</button> -->
+    </div>
+
+    <table class="m-table">
+      <tr>
+        <th>
+          ID:
+        </th>
+        <td id="idTd">
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Steps:
+        </th>
+        <td id="stepsTd">
+        </td>
+      </tr>
+      <!-- <tr>
+        <th>
+          Heart Rate (30sek):
+        </th>
+        <td id="heartRadTd">
+        </td>
+      </tr> -->
+      <tr>
+        <th>
+          Batterie: 
+        </th>
+        <td id="batteryTd">
+        </td>
+      </tr>
+    </table>
 
     <main style="display: none;">
       <pre id="output"></pre>
     </main>
 
     <script src="webapp.bundle.js"></script>
-
-    <script>
-      // Install service worker - for offline support (not working properly, so disabled)
-      /*if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('serviceworker.js');
-      }*/
-    </script>
   </body>
 </html>

@@ -2,12 +2,14 @@
 
 import MiBand from './miband';
 import test_all from './test';
+import displayInfos  from './displayInfos';
 
 import './styles/index.less';
 
 const bluetooth = navigator.bluetooth;
 
 const output = document.querySelector('#output');
+const infoDisplay = document.querySelector('#infoDisplay');
 
 function log() {
   document.querySelector('main').style.display = 'block';
@@ -15,14 +17,18 @@ function log() {
   output.innerHTML += [...arguments].join(' ') + '\n';
 }
 
+function setInfo(text) {
+  infoDisplay.innerHTML = text;
+}
+
 async function scan() {
   if (!bluetooth) {
-    log('WebBluetooth is not supported by your browser!');
+    setInfo('Dein Browser unterstütz kein Web Bluetooth');
     return;
   }
 
   try {
-    log('Requesting Bluetooth Device...');
+    setInfo('Scan Bluetooth Geräte...');
     const device = await bluetooth.requestDevice({
       filters: [
         { services: [ MiBand.advertisementService ] }
@@ -31,20 +37,23 @@ async function scan() {
     });
 
     device.addEventListener('gattserverdisconnected', () => {
-      log('Device disconnected');
+      setInfo('Mi Band disconnected');
     });
 
     await device.gatt.disconnect();
 
-    log('Connecting to the device...');
+    setInfo('Verbindung wird aufgebaut...');
     const server = await device.gatt.connect();
-    log('Connected');
+    setInfo('Verbunden');
 
     let miband = new MiBand(server);
 
     await miband.init();
 
-    await test_all(miband, log);
+
+    await displayInfos(miband, device);
+
+    // await test_all(miband, log);
 
   } catch(error) {
     log('Argh!', error);
