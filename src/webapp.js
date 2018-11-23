@@ -1,7 +1,6 @@
 'use strict';
 
 import MiBand from './miband';
-import test_all from './test';
 import displayInfos  from './displayInfos';
 
 import './styles/index.less';

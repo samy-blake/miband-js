@@ -24,6 +24,76 @@
       <div id="errorDisplay"></div>
     </header>
 
+    <div id="auth">
+      <p>
+        <label>
+          <input type="radio" name="auth" id="checkLogin">
+          Login
+        </label>
+        <label>
+          <input type="radio" name="auth" id="checkRegister">
+          Register
+        </label>
+      </p>
+      <p>
+        <label>
+          E-Mail<br>
+          <input type="email" id="email">
+        </label>
+      </p>
+      <p>
+        <label>
+          Passwort<br>
+          <input type="email" id="password">
+        </label>
+      </p>
+      <p>
+        <label>
+          Vorname<br>
+          <input type="email" id="firstname">
+        </label>
+      </p>
+      <p>
+        <label>
+          Nachname<br>
+          <input type="email" id="lastname">
+        </label>
+      </p>
+
+      <button id="createGroup">
+        Gruppe Erstellen
+      </button>
+    </div>
+
+    <div id="loggedAuth" style="display: none">
+      <div>
+        <h2>
+          Gruppen
+        </h2>
+        <div>
+          <p>
+            <label>
+              Gruppename <br>
+              <input type="text">
+            </label>
+            <button id="createGroup">
+              Gruppe Erstellen
+            </button>
+          </p>
+        </div>
+        <ul id="groups">
+          <li>
+            
+          </li>
+        </ul>
+
+        <ul id="groupsMember">
+          <li>
+            
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <div class="m-header__button">
       <button id="scanBtn" class="btn-scan">Scan</button>

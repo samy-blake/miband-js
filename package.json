@@ -12,6 +12,7 @@
     "https": "cd public && http-server -S -C cert.pem -o",
     "start": "ecstatic ./public --port 8080",
     "build": "rollup -c ./.rollup.js",
+    "build:lib": "rollup -c ./.rollup.lib.js",
     "watch": "rollup -c ./.rollup.js -w",
     "debug": "node --inspect ./bin/miband-test.js",
     "gh-deploy": "npm run build && gh-pages -d public",
